@@ -14,12 +14,14 @@ This package makes the OKR Coach usable across several AI assistants.
 - `github-copilot/.github/skills/okr-coach/SKILL.md`: Copilot Agent Skill format.
 - `github-copilot/AGENTS.md`: Agent instructions recognized by Copilot cloud agent and other agents that read `AGENTS.md`.
 - `generic/okr-coach-system-prompt.md`: Paste-anywhere prompt for assistants without a skill or instruction-file system.
+- `a2ui/`: Optional A2UI v0.9 adapter with a sample OKR coaching surface and prompt add-on.
 
 ## Notes
 
 - The canonical skill content is `agent-skill/okr-coach/SKILL.md`.
 - The Copilot files are wrappers because Copilot can use `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `.github/prompts/*.prompt.md`, `.github/agents/*.agent.md`, `.github/skills/*/SKILL.md`, and `AGENTS.md` patterns.
 - Keep all variants outcome-first: audit the goal before rewriting it, detect pilots/experiments, avoid fake ROI, and produce three quarterly Objective options with measurable Key Results.
+- Codex can generate A2UI payloads, but Codex skills do not natively render A2UI surfaces. Use the `a2ui/` files with a host application that has an A2UI renderer.
 
 ## License
 
@@ -32,3 +34,4 @@ MIT License. Use it, modify it, share it, and adapt it freely.
 - GitHub Copilot prompt files: https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file
 - GitHub Copilot custom agents: https://docs.github.com/en/copilot/reference/custom-agents-configuration
 - GitHub Copilot Agent Skills: https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills
+- A2UI v0.9 protocol: https://github.com/a2ui-project/a2ui/blob/main/specification/v0_9/docs/a2ui_protocol.md

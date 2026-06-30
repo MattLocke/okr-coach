@@ -1,0 +1,263 @@
+[
+  {
+    "version": "v0.9",
+    "createSurface": {
+      "surfaceId": "okr_coach_review",
+      "catalogId": "https://a2ui.org/specification/v0_9/catalogs/basic/catalog.json",
+      "theme": {
+        "primaryColor": "#2563EB"
+      },
+      "sendDataModel": true
+    }
+  },
+  {
+    "version": "v0.9",
+    "updateDataModel": {
+      "surfaceId": "okr_coach_review",
+      "path": "/",
+      "value": {
+        "title": "OKR Coach",
+        "summary": "A quarterly OKR review that turns task-based goals into outcome-focused options.",
+        "audit": {
+          "status": "Needs rewrite",
+          "antiPatterns": [
+            "Launch X",
+            "Binary completion goal"
+          ],
+          "underlyingOutcome": "New hires reach confidence and productivity faster in their first month."
+        },
+        "contextCheck": {
+          "mode": "Pilot or weak-baseline mode",
+          "guidance": "Use adoption, learning, repeatability, and decision-readiness signals before forcing ROI."
+        },
+        "objectiveOptions": [
+          {
+            "id": "option_1",
+            "label": "Option 1",
+            "objective": "New hires feel confident and productive sooner in their first month.",
+            "keyResults": [
+              "80% of new hires report confidence in role expectations by day 14.",
+              "Manager check-ins show new hires can complete core workflows with no more than one escalation by day 30.",
+              "At least three onboarding friction points are identified and prioritized for next quarter."
+            ],
+            "measurementGuidance": "Use pulse surveys, manager check-in notes, onboarding support tickets, and a small sample review from the first cohort."
+          },
+          {
+            "id": "option_2",
+            "label": "Option 2",
+            "objective": "Managers can guide new hires with less guesswork and more consistency.",
+            "keyResults": [
+              "90% of managers use the same onboarding milestones for new hires by week 2.",
+              "Manager confidence in onboarding readiness improves from the first-two-weeks baseline.",
+              "New hire questions about ownership, tools, and first-week expectations decrease across the pilot cohort."
+            ],
+            "measurementGuidance": "Use manager pulse checks, milestone logs, recurring question themes, and a short before/after baseline."
+          },
+          {
+            "id": "option_3",
+            "label": "Option 3",
+            "objective": "The team learns whether the new onboarding approach is ready to scale.",
+            "keyResults": [
+              "Pilot cohort completion patterns identify which onboarding steps are repeatable without extra support.",
+              "Stakeholders agree on a scale, adjust, or stop recommendation before quarter-end.",
+              "Evidence from new hires and managers identifies the top two changes needed before expansion."
+            ],
+            "measurementGuidance": "Use cohort logs, stakeholder review notes, qualitative themes, and an explicit decision record."
+          }
+        ],
+        "selectedObjectiveIds": [
+          "option_1"
+        ]
+      }
+    }
+  },
+  {
+    "version": "v0.9",
+    "updateComponents": {
+      "surfaceId": "okr_coach_review",
+      "components": [
+        {
+          "id": "root",
+          "component": "Column",
+          "children": [
+            "title",
+            "summary",
+            "audit_card",
+            "context_card",
+            "objective_picker",
+            "option_1_card",
+            "option_2_card",
+            "option_3_card",
+            "choose_button"
+          ]
+        },
+        {
+          "id": "title",
+          "component": "Text",
+          "variant": "h1",
+          "text": {
+            "path": "/title"
+          }
+        },
+        {
+          "id": "summary",
+          "component": "Text",
+          "variant": "body",
+          "text": {
+            "path": "/summary"
+          }
+        },
+        {
+          "id": "audit_card",
+          "component": "Card",
+          "child": "audit_content"
+        },
+        {
+          "id": "audit_content",
+          "component": "Column",
+          "children": [
+            "audit_heading",
+            "audit_status",
+            "audit_outcome"
+          ]
+        },
+        {
+          "id": "audit_heading",
+          "component": "Text",
+          "variant": "h2",
+          "text": "Audit"
+        },
+        {
+          "id": "audit_status",
+          "component": "Text",
+          "variant": "body",
+          "text": {
+            "path": "/audit/status"
+          }
+        },
+        {
+          "id": "audit_outcome",
+          "component": "Text",
+          "variant": "body",
+          "text": {
+            "path": "/audit/underlyingOutcome"
+          }
+        },
+        {
+          "id": "context_card",
+          "component": "Card",
+          "child": "context_content"
+        },
+        {
+          "id": "context_content",
+          "component": "Column",
+          "children": [
+            "context_heading",
+            "context_mode",
+            "context_guidance"
+          ]
+        },
+        {
+          "id": "context_heading",
+          "component": "Text",
+          "variant": "h2",
+          "text": "Context Check"
+        },
+        {
+          "id": "context_mode",
+          "component": "Text",
+          "variant": "body",
+          "text": {
+            "path": "/contextCheck/mode"
+          }
+        },
+        {
+          "id": "context_guidance",
+          "component": "Text",
+          "variant": "body",
+          "text": {
+            "path": "/contextCheck/guidance"
+          }
+        },
+        {
+          "id": "objective_picker",
+          "component": "ChoicePicker",
+          "label": "Select an objective option",
+          "variant": "mutuallyExclusive",
+          "displayStyle": "chips",
+          "options": [
+            {
+              "label": "Option 1",
+              "value": "option_1"
+            },
+            {
+              "label": "Option 2",
+              "value": "option_2"
+            },
+            {
+              "label": "Option 3",
+              "value": "option_3"
+            }
+          ],
+          "value": {
+            "path": "/selectedObjectiveIds"
+          }
+        },
+        {
+          "id": "option_1_card",
+          "component": "Card",
+          "child": "option_1_text"
+        },
+        {
+          "id": "option_1_text",
+          "component": "Text",
+          "variant": "body",
+          "text": "**Option 1:** New hires feel confident and productive sooner in their first month.\n\nKRs:\n- 80% report confidence by day 14.\n- Core workflows need no more than one escalation by day 30.\n- Three friction points are prioritized for next quarter."
+        },
+        {
+          "id": "option_2_card",
+          "component": "Card",
+          "child": "option_2_text"
+        },
+        {
+          "id": "option_2_text",
+          "component": "Text",
+          "variant": "body",
+          "text": "**Option 2:** Managers can guide new hires with less guesswork and more consistency.\n\nKRs:\n- 90% use shared milestones by week 2.\n- Manager confidence improves from baseline.\n- Repeated questions decline across the pilot cohort."
+        },
+        {
+          "id": "option_3_card",
+          "component": "Card",
+          "child": "option_3_text"
+        },
+        {
+          "id": "option_3_text",
+          "component": "Text",
+          "variant": "body",
+          "text": "**Option 3:** The team learns whether the new onboarding approach is ready to scale.\n\nKRs:\n- Repeatable steps are identified.\n- Stakeholders make a scale, adjust, or stop recommendation.\n- Top two changes before expansion are documented."
+        },
+        {
+          "id": "choose_button",
+          "component": "Button",
+          "variant": "primary",
+          "child": "choose_button_label",
+          "action": {
+            "event": {
+              "name": "chooseObjective",
+              "context": {
+                "selectedObjectiveIds": {
+                  "path": "/selectedObjectiveIds"
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "choose_button_label",
+          "component": "Text",
+          "text": "Use selected objective"
+        }
+      ]
+    }
+  }
+]

@@ -214,6 +214,28 @@ Objective Option 3:
 [Practical measurement notes.]
 ```
 
+## Optional A2UI Mode
+
+Codex skills do not render A2UI surfaces natively. If the user asks for A2UI, agent-to-user UI, structured UI output, or an embeddable OKR coach interface, provide the normal OKR coaching answer plus an A2UI v0.9 server-to-client message list that an A2UI-compatible renderer can consume.
+
+Use A2UI for interface handoff, not as a substitute for coaching quality. The A2UI payload should present:
+
+- A concise audit summary
+- Pilot/experiment status
+- Three selectable Objective options
+- Key Results grouped under each Objective
+- Measurement notes
+- Optional intake fields for department, team, role level, position, and messy goal
+
+When emitting A2UI:
+
+- Use `version: "v0.9"`.
+- Use the Basic Catalog id `https://a2ui.org/specification/v0_9/catalogs/basic/catalog.json` unless the user provides a custom catalog.
+- Start with `createSurface`, then `updateDataModel`, then `updateComponents`.
+- Include a component with `id: "root"`.
+- Keep the payload valid JSON. Do not wrap it in prose inside the JSON block.
+- Mention that Codex can generate and edit the A2UI payload, but the host application needs an A2UI renderer to display it.
+
 ## Quality Bar
 
 Before finalizing, check:
