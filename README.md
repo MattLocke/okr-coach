@@ -21,6 +21,10 @@ This package makes the OKR Coach usable across several AI assistants.
 - The Copilot files are wrappers because Copilot can use `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `.github/prompts/*.prompt.md`, `.github/agents/*.agent.md`, `.github/skills/*/SKILL.md`, and `AGENTS.md` patterns.
 - Keep all variants outcome-first: audit the goal before rewriting it, detect pilots/experiments, avoid fake ROI, and produce three quarterly Objective options with measurable Key Results.
 
+## License
+
+MIT License. Use it, modify it, share it, and adapt it freely.
+
 ## Compatibility References
 
 - Claude Code Skills: https://docs.anthropic.com/en/docs/claude-code/skills
