@@ -1,0 +1,4 @@
+interface:
+  display_name: "OKR Coach"
+  short_description: "Create sharp quarterly OKRs"
+  default_prompt: "Use $okr-coach to turn this messy quarterly goal into strong OKR options."
